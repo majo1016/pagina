@@ -1,4 +1,5 @@
 let canvas = document.querySelector("#miCanvas");
+let mercado=JSON.parse(localStorage.getItem("animacion"))
 let ctx = canvas.getContext("2d");
 
 function loadImages(sources, callback) {
@@ -19,13 +20,11 @@ function loadImages(sources, callback) {
   }
 }
 var sources = {
-  //darthVader:
-   // "http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg",
+  darthVader:
+    "http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg",
   yoda: "http://www.html5canvastutorials.com/demos/assets/yoda.jpg",
   soccerBall:
     "https://upload.wikimedia.org/wikipedia/commons/d/d3/Soccerball.svg",
-    kaneki:
-    "https://www.pngegg.com/es/png-cppdl"
 };
 let x = 50;
 let y = 60;
@@ -66,3 +65,17 @@ function run(images) {
 // la funcion run se ejecuta cuando las imagenes acaban de cargar.
 loadImages(sources, run);
 
+window.onkeydown = function (evento) {
+  if (evento.key == "w") {
+    y2 = y2 - 10;
+  }
+  if (evento.key == "s") {
+    y2 = y2 + 10;
+  }
+  if (evento.key == "a") {
+    x2 = x2 - 10;
+  }
+  if (evento.key == "d") {
+    x2 = x2 + 10;
+  }
+}; console.log(JSON.parse(localStorage.getItem("animacion.js")))
